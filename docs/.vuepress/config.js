@@ -15,26 +15,20 @@ module.exports = {
   themeConfig: {
     nav: [],
     sidebar: [
-      {
-        title: 'Languages',
-        collapsable: true,
-        children: [
-          '/pages/01-html/main',
-          '/pages/02-css/main',
-          '/pages/04-js/main',
-          '/pages/06-wordpress/main',
-          '/pages/07-laravel/main',
-          '/pages/07-laravel/mini-tuto',
-          '/pages/05-photoshop/main'
-        ],
-      },
+      '/',
+      ['/pages/main','intro'],
       {
         title: 'Sujets',
-        collapsable: true,
+        collapsable: false,
         children: [
-          '/pages/08-sujets/main.md'
+          ['/pages/layout','Layout'],
+          ['/pages/client_side','Client-side'],
+          ['/pages/server_side','Server-side'],
+          ['/pages/design','Design']
+         
         ],
       },
+  
      
     ],
     searchMaxSuggestions: 25,

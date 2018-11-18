@@ -1,7 +1,0 @@
-# Photoshop 
-
-## Todo :  
-
-
-- elements
-- méthodos
