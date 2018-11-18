@@ -114,6 +114,11 @@ section.msg.msgB>.msg__content>span
 ```
 
 ## Message Animated
+
+**emmet**
+```
+.msg__content>span>.typing>span*3
+```
 ```html
  <!-- typing message -->
 <div class="msg__content">
@@ -127,6 +132,7 @@ section.msg.msgB>.msg__content>span
           </span>
 </div>
 ```
+
 
 ## Card grid 
 
