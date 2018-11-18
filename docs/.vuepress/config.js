@@ -18,16 +18,25 @@ module.exports = {
       '/',
       ['/pages/main','intro'],
       {
-        title: 'Sujets',
-        collapsable: false,
+        title: 'Layout',
+        collapsable: true,
         children: [
-          ['/pages/layout','Layout'],
-          ['/pages/client_side','Client-side'],
-          ['/pages/server_side','Server-side'],
-          ['/pages/design','Design']
-         
+          ['/pages/layout/html','html'],
+          ['/pages/layout/css','css'],
         ],
       },
+      {
+        title: 'Client-Side',
+        collapsable: true,
+        children: [
+          ['/pages/client-side/helpers','helpers'],
+          ['/pages/client-side/main','main'],
+          ['/pages/client-side/components','components'],
+        ],
+      },
+      
+      
+
   
      
     ],
