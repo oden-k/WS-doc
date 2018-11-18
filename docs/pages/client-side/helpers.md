@@ -20,8 +20,34 @@ const toFrenchFormat = () => {
 ### Convert seconds to template
 
 ```js
+const secondsToTime = sc => {
 
+  let sec_num = parseInt(sc, 10); 
+  
+  let hours   = Math.floor(sec_num / 3600);
+  let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+  let seconds = sec_num - (hours * 3600) - (minutes * 60);
+  
+  /* optional */
+  if (hours   < 10) {hours   = "0"+hours;}
+  if (minutes < 10) {minutes = "0"+minutes;}
+  if (seconds < 10) {seconds = "0"+seconds;}
+  
+  return `${hours}H ${minutes}M $`
+}
 ```
+### Find and delete in an array
+
+```js 
+const findAndDelete = (array,val) => {
+	for( var i = 0; i < array.length; i++){ 
+		if ( array[i] === val) {
+			array.splice(i, 1); 
+		}
+	}
+}
+```
+
 
 ### Get informations of a podcast 
 
