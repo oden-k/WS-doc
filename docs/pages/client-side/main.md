@@ -86,6 +86,7 @@ The session interface is meant to bridge the data from the store to the token se
 `postLikes` & `findAndDelete`
 
 ```js 
+const sessionInterface = {
 	likePodcast : (id) => {
 		const likedPodcasts = store.session.podcasts
 
