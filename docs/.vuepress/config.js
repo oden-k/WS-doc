@@ -61,6 +61,13 @@ module.exports = {
       [
         'link',
         {
+          rel: 'stylesheet',
+          href: `/style/main.css`,
+        },
+      ],
+      [
+        'link',
+        {
           rel: 'mask-icon',
           href: '/icons/safari-pinned-tab.svg',
           color: '#3eaf7c',
