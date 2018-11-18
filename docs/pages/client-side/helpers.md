@@ -20,7 +20,7 @@ const toFrenchFormat = () => {
 ### Convert seconds to template
 
 ```js
-const secondsToTime = sc => {
+const secondsToTime = (sc,type) => {
 
   let sec_num = parseInt(sc, 10); 
   
@@ -33,7 +33,15 @@ const secondsToTime = sc => {
   if (minutes < 10) {minutes = "0"+minutes;}
   if (seconds < 10) {seconds = "0"+seconds;}
   
-  return `${hours}H ${minutes}M $`
+  /* types */
+  switch(type){
+    case 'HH:MM' :
+      return `${hours}H ${minutes}M $`
+      break;
+    case 'MM:SS' :
+      return `${minutes}H ${seconds}M $`
+      break;
+  }
 }
 ```
 ### Find and delete in an array

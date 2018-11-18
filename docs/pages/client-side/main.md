@@ -76,5 +76,41 @@ const api = {
 ### Event bus
 ``30sec``
 ```js 
+const eventBus =  new Vue()
+```
 
+
+## Session Interface 
+
+The session interface is meant to bridge the data from the store to the token session on the server. It makes use of two functions already declared :  
+`postLikes` & `findAndDelete`
+
+```js 
+	likePodcast : (id) => {
+		const likedPodcasts = store.session.podcasts
+
+		likedPodcasts.includes(id) 
+    		? findAndDelete(likedPodcasts,id) 
+    		: likedPodcasts.push(id)
+
+		postLikes()
+	},
+	likeEpisode : (id) => {
+		const likedEpisode = store.session.episodes
+
+		likedEpisode.includes(id) 
+    		? findAndDelete(likedEpisode,id) 
+    		: likedEpisode.push(id)
+
+		postLikes()
+	},
+	getPodcastLike: (podcast) => {
+		const like = store.session.podcasts.includes(podcast.id) ? 1 : 0
+		const likesEpisodes = podcast.episodes.reduce((acc,curr) =>  acc += sessionInterface.getEpisodeLike(curr),0)
+		return like + likesEpisodes
+	},
+	getEpisodeLike: (episode) => {
+		return store.session.episodes.includes(episode.id) ? 1 : 0
+	}
+}
 ```
