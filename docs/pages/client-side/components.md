@@ -1,6 +1,6 @@
 # Components
 
-```js
+```
 // list of all the component files
 
 v-slide
