@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>List of helper functions | Preparation World skills</title>
+    <meta name="description" content="Side de documentation de Simon Renault pour les Olympiades des Métiers 2018">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.cdd67ab8.css" as="style"><link rel="preload" href="/assets/js/app.b67adcb0.js" as="script"><link rel="preload" href="/assets/js/10.1238fb88.js" as="script"><link rel="prefetch" href="/assets/js/8.646fd5c1.js"><link rel="prefetch" href="/assets/js/1.665f6ac1.js"><link rel="prefetch" href="/assets/js/2.34b1b64f.js"><link rel="prefetch" href="/assets/js/3.8ff14bcb.js"><link rel="prefetch" href="/assets/js/4.647502b3.js"><link rel="prefetch" href="/assets/js/5.0e9dba83.js"><link rel="prefetch" href="/assets/js/6.ae864a7b.js"><link rel="prefetch" href="/assets/js/7.2476b94f.js"><link rel="prefetch" href="/assets/js/9.02d1b270.js"><link rel="prefetch" href="/assets/js/11.473ae604.js"><link rel="prefetch" href="/assets/js/12.7efec147.js"><link rel="prefetch" href="/assets/js/13.eff0bc4f.js"><link rel="prefetch" href="/assets/js/14.9c6a5b4e.js"><link rel="prefetch" href="/assets/js/15.fc95780a.js"><link rel="prefetch" href="/assets/js/16.6a898f0e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cdd67ab8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      Preparation World skills
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><!----></div></header><div class="sidebar-mask"></div><div class="sidebar"><!----><ul class="sidebar-links"><li><a href="/" class="sidebar-link">Home</a></li><li><a href="/pages/main.html" class="sidebar-link">intro</a></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Layout</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Client-Side</span><span class="arrow down"></span></p><ul class="sidebar-group-items"><li><a href="/pages/client-side/helpers.html" class="active sidebar-link">helpers</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/pages/client-side/main.html" class="sidebar-link">main</a></li><li><a href="/pages/client-side/components.html" class="sidebar-link">components</a></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Server-Side</span><span class="arrow right"></span></p><!----></div></li></ul></div><div class="page"><div class="content"><h1 id="list-of-helper-functions"><a href="#list-of-helper-functions" aria-hidden="true" class="header-anchor">#</a> List of helper functions</h1><h3 id="convert-date-to-human-format"><a href="#convert-date-to-human-format" aria-hidden="true" class="header-anchor">#</a> Convert date to human format</h3><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">formatDate</span> <span class="token operator">=</span> dts <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> date <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>dts<span class="token punctuation">)</span>
+	<span class="token keyword">const</span> params  <span class="token operator">=</span> <span class="token punctuation">{</span>
+		year <span class="token punctuation">:</span> <span class="token string">'numeric'</span><span class="token punctuation">,</span>
+		month <span class="token punctuation">:</span> <span class="token string">'short'</span><span class="token punctuation">,</span>
+		day <span class="token punctuation">:</span> <span class="token string">'numeric'</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> date<span class="token punctuation">.</span><span class="token function">toLocaleDateString</span><span class="token punctuation">(</span><span class="token string">'fr-FR'</span><span class="token punctuation">,</span>params<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="convert-seconds-to-template"><a href="#convert-seconds-to-template" aria-hidden="true" class="header-anchor">#</a> Convert seconds to template</h3><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">secondsToTime</span> <span class="token operator">=</span> <span class="token punctuation">(</span>sc<span class="token punctuation">,</span>format<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">let</span> sc_num <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>sc<span class="token punctuation">)</span>
+
+	<span class="token keyword">let</span> hours <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>sc_num <span class="token operator">/</span><span class="token number">3600</span><span class="token punctuation">)</span>
+	<span class="token keyword">let</span> minutes <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>  <span class="token punctuation">(</span>sc_num <span class="token operator">-</span> hours<span class="token operator">*</span><span class="token number">3600</span> <span class="token punctuation">)</span> <span class="token operator">/</span><span class="token number">60</span><span class="token punctuation">)</span>
+	<span class="token keyword">let</span> seconds <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span> sc_num <span class="token operator">-</span> <span class="token punctuation">(</span> hours<span class="token operator">*</span><span class="token number">3600</span> <span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span>minutes<span class="token operator">*</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+	hours <span class="token operator">=</span>  hours <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token string">'0'</span><span class="token operator">+</span>hours <span class="token punctuation">:</span> hours
+	minutes <span class="token operator">=</span>  minutes <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token string">'0'</span><span class="token operator">+</span> minutes <span class="token punctuation">:</span> minutes
+	seconds <span class="token operator">=</span>  seconds <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token operator">?</span> <span class="token string">'0'</span><span class="token operator">+</span> seconds <span class="token punctuation">:</span> seconds
+
+	<span class="token keyword">switch</span><span class="token punctuation">(</span>format<span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">case</span> <span class="token string">'HH:MM'</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>hours<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">H </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>minutes<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">M`</span></span>
+			<span class="token keyword">break</span><span class="token punctuation">;</span>
+		<span class="token keyword">case</span> <span class="token string">'MMSS'</span><span class="token punctuation">:</span>
+			<span class="token keyword">return</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>minutes<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>seconds<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+			<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="find-and-delete-in-an-array"><a href="#find-and-delete-in-an-array" aria-hidden="true" class="header-anchor">#</a> Find and delete in an array</h3><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">findAndDelete</span> <span class="token operator">=</span> <span class="token punctuation">(</span>arr<span class="token punctuation">,</span>item<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> item
+			<span class="token operator">?</span> arr<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span>
+			<span class="token punctuation">:</span> <span class="token keyword">null</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="get-informations-of-a-podcast"><a href="#get-informations-of-a-podcast" aria-hidden="true" class="header-anchor">#</a> Get informations of a podcast</h3><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/*
+ * @return totalDuration fromated
+ * @return totalLikes 
+ * @return createdAt fromated
+ * @return firstEpisode mp3 href
+*/</span>
+</code></pre></div><h3 id="get-informations-of-an-episode"><a href="#get-informations-of-an-episode" aria-hidden="true" class="header-anchor">#</a> Get informations of an episode</h3><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/*
+ * @return duration fromated
+ * @return likes 
+ * @return createdAt fromated
+ * @return mp3 href
+*/</span>
+</code></pre></div></div><div class="page-edit"><!----><div class="last-updated"><span class="prefix">Last Updated: </span><span class="time">11/26/2018, 11:12:28 PM</span></div></div><div class="page-nav"><p class="inner"><span class="prev">
+        ← <a href="/pages/layout/css.html" class="prev">
+          css
+        </a></span><span class="next"><a href="/pages/client-side/main.html">
+          main
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/10.1238fb88.js" defer></script><script src="/assets/js/app.b67adcb0.js" defer></script>
+  </body>
+</html>

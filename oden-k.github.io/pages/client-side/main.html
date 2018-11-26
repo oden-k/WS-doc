@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Client Side Module | Preparation World skills</title>
+    <meta name="description" content="Side de documentation de Simon Renault pour les Olympiades des Métiers 2018">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.cdd67ab8.css" as="style"><link rel="preload" href="/assets/js/app.b67adcb0.js" as="script"><link rel="preload" href="/assets/js/9.02d1b270.js" as="script"><link rel="prefetch" href="/assets/js/8.646fd5c1.js"><link rel="prefetch" href="/assets/js/1.665f6ac1.js"><link rel="prefetch" href="/assets/js/2.34b1b64f.js"><link rel="prefetch" href="/assets/js/3.8ff14bcb.js"><link rel="prefetch" href="/assets/js/4.647502b3.js"><link rel="prefetch" href="/assets/js/5.0e9dba83.js"><link rel="prefetch" href="/assets/js/6.ae864a7b.js"><link rel="prefetch" href="/assets/js/7.2476b94f.js"><link rel="prefetch" href="/assets/js/10.1238fb88.js"><link rel="prefetch" href="/assets/js/11.473ae604.js"><link rel="prefetch" href="/assets/js/12.7efec147.js"><link rel="prefetch" href="/assets/js/13.eff0bc4f.js"><link rel="prefetch" href="/assets/js/14.9c6a5b4e.js"><link rel="prefetch" href="/assets/js/15.fc95780a.js"><link rel="prefetch" href="/assets/js/16.6a898f0e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cdd67ab8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      Preparation World skills
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><!----></div></header><div class="sidebar-mask"></div><div class="sidebar"><!----><ul class="sidebar-links"><li><a href="/" class="sidebar-link">Home</a></li><li><a href="/pages/main.html" class="sidebar-link">intro</a></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Layout</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Client-Side</span><span class="arrow down"></span></p><ul class="sidebar-group-items"><li><a href="/pages/client-side/helpers.html" class="sidebar-link">helpers</a></li><li><a href="/pages/client-side/main.html" class="active sidebar-link">main</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/client-side/main.html#folder-structure" class="sidebar-link">Folder structure</a></li><li class="sidebar-sub-header"><a href="/pages/client-side/main.html#_1-constants-and-helpers-for-api" class="sidebar-link">1 - Constants and helpers for api</a></li><li class="sidebar-sub-header"><a href="/pages/client-side/main.html#_2-session-interface" class="sidebar-link">2 - Session interface</a></li><li class="sidebar-sub-header"><a href="/pages/client-side/main.html#_3-store" class="sidebar-link">3 - Store</a></li><li class="sidebar-sub-header"><a href="/pages/client-side/main.html#_4-getters" class="sidebar-link">4 - Getters</a></li><li class="sidebar-sub-header"><a href="/pages/client-side/main.html#_5-main-vue-app" class="sidebar-link">5 -  Main Vue App</a></li></ul></li><li><a href="/pages/client-side/components.html" class="sidebar-link">components</a></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Server-Side</span><span class="arrow right"></span></p><!----></div></li></ul></div><div class="page"><div class="content"><h1 id="client-side-module"><a href="#client-side-module" aria-hidden="true" class="header-anchor">#</a> Client Side Module</h1><p>For the seek of performance training is very important, so it is a must to follow the steps described below in the right order and to try to do it fast.</p><p>Most of the complicated functions actually lives in the main.js file.</p><h2 id="folder-structure"><a href="#folder-structure" aria-hidden="true" class="header-anchor">#</a> Folder structure</h2><div class="language- extra-class"><pre class="language-text"><code>src -- &gt; /js
+          |-- /components
+          |
+          |-- /vendors
+          |
+          |-- main.js
+          |
+            
+</code></pre></div><h2 id="_1-constants-and-helpers-for-api"><a href="#_1-constants-and-helpers-for-api" aria-hidden="true" class="header-anchor">#</a> 1 - Constants and helpers for api</h2><h3 id="token"><a href="#token" aria-hidden="true" class="header-anchor">#</a> token</h3><p><code>1min</code></p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/*
+ * Constants
+ * 
+*/</span>
+<span class="token keyword">const</span> baseUrl <span class="token operator">=</span> <span class="token string">&quot;http://api.wabee.fr&quot;</span>
+
+<span class="token comment">/*
+ * Helpers
+ * 
+*/</span>
+<span class="token keyword">const</span> <span class="token function-variable function">getToken</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">setToken</span> <span class="token operator">=</span> token <span class="token operator">=&gt;</span> localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'token'</span><span class="token punctuation">,</span>token<span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">apiUrl</span> <span class="token operator">=</span> url <span class="token operator">=&gt;</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>baseUrl<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+<span class="token keyword">const</span> <span class="token function-variable function">makeSlideshow</span> <span class="token operator">=</span> <span class="token punctuation">(</span>el<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">new</span> <span class="token class-name">Slideshow</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span>
+
+</code></pre></div><h3 id="api"><a href="#api" aria-hidden="true" class="header-anchor">#</a> api</h3><p><code>4min</code></p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/*
+ * Api helpers
+ * 
+*/</span>
+<span class="token keyword">const</span> api <span class="token operator">=</span> <span class="token punctuation">{</span>
+	<span class="token keyword">get</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>url<span class="token punctuation">,</span>data<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token function">apiUrl</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+			method <span class="token punctuation">:</span> <span class="token string">'GET'</span><span class="token punctuation">,</span>
+			headers <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+				<span class="token string">&quot;X-auth-token&quot;</span> <span class="token punctuation">:</span> <span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+			data
+		<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	post <span class="token punctuation">:</span> <span class="token punctuation">(</span>url<span class="token punctuation">,</span>data<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token function">apiUrl</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+			method <span class="token punctuation">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+			headers <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+				<span class="token string">&quot;X-auth-token&quot;</span> <span class="token punctuation">:</span> <span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+			data <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+				datas <span class="token punctuation">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_2-session-interface"><a href="#_2-session-interface" aria-hidden="true" class="header-anchor">#</a> 2 - Session interface</h2><p>The session interface is meant to bridge the data from the store to the token session on the server. It makes use of two functions already declared :<br><code>postLikes</code> &amp; <code>findAndDelete</code></p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/*
+ * Session interface
+ * 
+*/</span>
+<span class="token keyword">const</span> $Session <span class="token operator">=</span> <span class="token punctuation">{</span>
+	likePodcast <span class="token punctuation">:</span> <span class="token punctuation">(</span>podcast<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		store<span class="token punctuation">.</span>session<span class="token punctuation">.</span>podcasts<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>podcast<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+			<span class="token operator">?</span>   <span class="token function">findAndDelete</span><span class="token punctuation">(</span>	store<span class="token punctuation">.</span>session<span class="token punctuation">.</span>podcasts<span class="token punctuation">,</span> podcast<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+			<span class="token punctuation">:</span> 	store<span class="token punctuation">.</span>session<span class="token punctuation">.</span>podcasts<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>podcast<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+		<span class="token function">postData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	likeEpisode <span class="token punctuation">:</span> <span class="token punctuation">(</span>episode<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		store<span class="token punctuation">.</span>session<span class="token punctuation">.</span>episodes<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>episode<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+			<span class="token operator">?</span>   <span class="token function">findAndDelete</span><span class="token punctuation">(</span>	store<span class="token punctuation">.</span>session<span class="token punctuation">.</span>episodes<span class="token punctuation">,</span> episode<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+			<span class="token punctuation">:</span> 	store<span class="token punctuation">.</span>session<span class="token punctuation">.</span>episodes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>episode<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+		<span class="token function">postData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	getLikesOfPodcastAndEpisodes <span class="token punctuation">:</span> podcast <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">let</span> likesEpisodes <span class="token operator">=</span> podcast<span class="token punctuation">.</span>episodes<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token operator">=&gt;</span> a <span class="token operator">+=</span> $Session<span class="token punctuation">.</span><span class="token function">getLikesOfEpisode</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+		<span class="token keyword">let</span> likes <span class="token operator">=</span> store<span class="token punctuation">.</span>session<span class="token punctuation">.</span>podcasts<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>podcast<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">0</span>
+		<span class="token keyword">return</span>  likes <span class="token operator">+</span>  likesEpisodes
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	getLikesOfPodcast <span class="token punctuation">:</span> podcast <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span>   store<span class="token punctuation">.</span>session<span class="token punctuation">.</span>podcasts<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>podcast<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">0</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	getLikesOfEpisode <span class="token punctuation">:</span> episode <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> store<span class="token punctuation">.</span>session<span class="token punctuation">.</span>episodes<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>episode<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">0</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">const</span> <span class="token function-variable function">postData</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	api<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/sessions/store'</span><span class="token punctuation">,</span>store<span class="token punctuation">.</span>session<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_3-store"><a href="#_3-store" aria-hidden="true" class="header-anchor">#</a> 3 - Store</h2><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/*
+ * Store
+ * 
+*/</span>
+<span class="token keyword">const</span> store  <span class="token operator">=</span> <span class="token punctuation">{</span>
+	audios <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	podcasts <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	session <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		episodes <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+		podcasts <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+	<span class="token comment">/*episode section*/</span>
+	episodeSection_visible <span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+	episodeSection_episodes <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	episodeSection_podcast <span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+	
+	<span class="token comment">/*playlist*/</span>
+	playlist_podcast <span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+	playlist_episodes <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	playlist_current_id <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	playlist_visible <span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+	playlist_podcast_playing <span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+	playlist_episode_playing <span class="token punctuation">:</span> <span class="token string">''</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_4-getters"><a href="#_4-getters" aria-hidden="true" class="header-anchor">#</a> 4 - Getters</h2><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/*
+ * Getters
+ * 
+*/</span>
+<span class="token keyword">const</span> <span class="token function-variable function">getLikes</span> <span class="token operator">=</span> obj <span class="token operator">=&gt;</span> Object<span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>likes<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token operator">=&gt;</span> a <span class="token operator">+</span> c <span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">getAudio</span> <span class="token operator">=</span> episode <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>audios<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span> el <span class="token operator">=&gt;</span> el<span class="token punctuation">.</span>id <span class="token operator">===</span> episode<span class="token punctuation">.</span>audio_id<span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">getDuration</span> <span class="token operator">=</span> episode <span class="token operator">=&gt;</span> <span class="token function">getAudio</span><span class="token punctuation">(</span>episode<span class="token punctuation">)</span><span class="token punctuation">.</span>duration
+
+<span class="token keyword">const</span> <span class="token function-variable function">getEpisodeInfos</span> <span class="token operator">=</span> episode <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token punctuation">{</span>
+		likes <span class="token punctuation">:</span>  <span class="token function">getLikes</span><span class="token punctuation">(</span>episode<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		duration <span class="token punctuation">:</span> <span class="token function">secondsToTime</span><span class="token punctuation">(</span><span class="token function">getAudio</span><span class="token punctuation">(</span>episode<span class="token punctuation">)</span><span class="token punctuation">.</span>duration<span class="token punctuation">,</span><span class="token string">'HH:MM'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		images <span class="token punctuation">:</span> <span class="token function">getAudio</span><span class="token punctuation">(</span>episode<span class="token punctuation">)</span><span class="token punctuation">.</span>images<span class="token punctuation">,</span>
+		audio <span class="token punctuation">:</span> <span class="token function">getAudio</span><span class="token punctuation">(</span>episode<span class="token punctuation">)</span><span class="token punctuation">.</span>sources<span class="token punctuation">.</span>mp3
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">getPodcastInfos</span> <span class="token operator">=</span> podcast <span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+	<span class="token keyword">let</span> likes <span class="token operator">=</span> podcast<span class="token punctuation">.</span>episodes<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token operator">=&gt;</span> a <span class="token operator">+=</span> <span class="token function">getLikes</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+	<span class="token keyword">let</span> duration <span class="token operator">=</span>  podcast<span class="token punctuation">.</span>episodes<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>c<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+=</span> <span class="token function">getDuration</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">return</span> <span class="token punctuation">{</span>
+		likes <span class="token punctuation">:</span> <span class="token function">getLikes</span><span class="token punctuation">(</span>podcast<span class="token punctuation">)</span> <span class="token operator">+</span> likes<span class="token punctuation">,</span>
+		duration <span class="token punctuation">:</span> <span class="token function">secondsToTime</span><span class="token punctuation">(</span>duration<span class="token punctuation">,</span><span class="token string">'HH:MM'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+		created_at <span class="token punctuation">:</span> <span class="token function">formatDate</span><span class="token punctuation">(</span>podcast<span class="token punctuation">.</span>created_at<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		href <span class="token punctuation">:</span> podcast<span class="token punctuation">.</span>url<span class="token punctuation">,</span>
+		firstHref <span class="token punctuation">:</span> <span class="token function">getAudio</span><span class="token punctuation">(</span> podcast<span class="token punctuation">.</span>episodes<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>el <span class="token operator">=&gt;</span> el<span class="token punctuation">.</span>position <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sources<span class="token punctuation">.</span>mp3
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_5-main-vue-app"><a href="#_5-main-vue-app" aria-hidden="true" class="header-anchor">#</a> 5 -  Main Vue App</h2><h3 id="vue"><a href="#vue" aria-hidden="true" class="header-anchor">#</a> Vue</h3><p><code>10min</code></p><div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">*</span>
+ <span class="token operator">*</span> Main vue
+ <span class="token operator">*</span> 
+<span class="token operator">*</span><span class="token operator">/</span>
+<span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	el <span class="token punctuation">:</span> <span class="token string">'#App'</span><span class="token punctuation">,</span>
+	data <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		store
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	methods <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+		<span class="token function">getPodcasts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			api<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/podcasts'</span><span class="token punctuation">)</span>
+				<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>store<span class="token punctuation">.</span>podcasts <span class="token operator">=</span> res <span class="token punctuation">)</span>
+				<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+					eventBus<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'makeSlideshow'</span><span class="token punctuation">)</span>
+					<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getAudios</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+				<span class="token punctuation">}</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token function">getAudios</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			api<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/audios'</span><span class="token punctuation">)</span>
+				<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>store<span class="token punctuation">.</span>audios <span class="token operator">=</span> res <span class="token punctuation">)</span>
+				<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+					<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+				<span class="token punctuation">}</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token function">getSession</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			api<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/sessions/get'</span><span class="token punctuation">)</span>
+				<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+					<span class="token keyword">if</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>datas<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+						<span class="token function">postData</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+					<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>store<span class="token punctuation">.</span>session <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>datas<span class="token punctuation">)</span>
+					<span class="token punctuation">}</span>
+			<span class="token punctuation">}</span><span class="token punctuation">)</span>
+			eventBus<span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">'ready'</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			api<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/sessions/create'</span><span class="token punctuation">)</span>
+				<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=&gt;</span> <span class="token function">setToken</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>token<span class="token punctuation">)</span><span class="token punctuation">)</span>
+				<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+					<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getPodcasts</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+				<span class="token punctuation">}</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getPodcasts</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="event-bus"><a href="#event-bus" aria-hidden="true" class="header-anchor">#</a> Event bus</h3><p><code>30sec</code></p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/*
+ * EveentBus
+ * 
+*/</span>
+<span class="token keyword">const</span> eventBus <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+</code></pre></div></div><div class="page-edit"><!----><div class="last-updated"><span class="prefix">Last Updated: </span><span class="time">11/26/2018, 11:12:28 PM</span></div></div><div class="page-nav"><p class="inner"><span class="prev">
+        ← <a href="/pages/client-side/helpers.html" class="prev">
+          helpers
+        </a></span><span class="next"><a href="/pages/client-side/components.html">
+          components
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/9.02d1b270.js" defer></script><script src="/assets/js/app.b67adcb0.js" defer></script>
+  </body>
+</html>

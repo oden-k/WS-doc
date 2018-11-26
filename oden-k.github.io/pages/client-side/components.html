@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Components | Preparation World skills</title>
+    <meta name="description" content="Side de documentation de Simon Renault pour les Olympiades des Métiers 2018">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.cdd67ab8.css" as="style"><link rel="preload" href="/assets/js/app.b67adcb0.js" as="script"><link rel="preload" href="/assets/js/11.473ae604.js" as="script"><link rel="prefetch" href="/assets/js/8.646fd5c1.js"><link rel="prefetch" href="/assets/js/1.665f6ac1.js"><link rel="prefetch" href="/assets/js/2.34b1b64f.js"><link rel="prefetch" href="/assets/js/3.8ff14bcb.js"><link rel="prefetch" href="/assets/js/4.647502b3.js"><link rel="prefetch" href="/assets/js/5.0e9dba83.js"><link rel="prefetch" href="/assets/js/6.ae864a7b.js"><link rel="prefetch" href="/assets/js/7.2476b94f.js"><link rel="prefetch" href="/assets/js/9.02d1b270.js"><link rel="prefetch" href="/assets/js/10.1238fb88.js"><link rel="prefetch" href="/assets/js/12.7efec147.js"><link rel="prefetch" href="/assets/js/13.eff0bc4f.js"><link rel="prefetch" href="/assets/js/14.9c6a5b4e.js"><link rel="prefetch" href="/assets/js/15.fc95780a.js"><link rel="prefetch" href="/assets/js/16.6a898f0e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.cdd67ab8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      Preparation World skills
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><!----></div></header><div class="sidebar-mask"></div><div class="sidebar"><!----><ul class="sidebar-links"><li><a href="/" class="sidebar-link">Home</a></li><li><a href="/pages/main.html" class="sidebar-link">intro</a></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Layout</span><span class="arrow right"></span></p><!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Client-Side</span><span class="arrow down"></span></p><ul class="sidebar-group-items"><li><a href="/pages/client-side/helpers.html" class="sidebar-link">helpers</a></li><li><a href="/pages/client-side/main.html" class="sidebar-link">main</a></li><li><a href="/pages/client-side/components.html" class="active sidebar-link">components</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/client-side/components.html#v-player" class="sidebar-link">v-player</a></li></ul></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Server-Side</span><span class="arrow right"></span></p><!----></div></li></ul></div><div class="page"><div class="content"><h1 id="components"><a href="#components" aria-hidden="true" class="header-anchor">#</a> Components</h1><div class="language- extra-class"><pre class="language-text"><code>// list of all the component files
+
+v-slide
+v-podcast
+
+v-episode
+v-episode-small
+
+v-player
+v-playlist
+
+v-search
+</code></pre></div><h3 id="asyc-data"><a href="#asyc-data" aria-hidden="true" class="header-anchor">#</a> Asyc data :</h3><p>Don't forget that we are playing with async data fetched from a server, any non fetched data shoudlnt' be used before it's actuely on the browser. The event <strong>ready</strong> is meant to be firered when all the minimal needed data is fecthed.</p><h3 id="time"><a href="#time" aria-hidden="true" class="header-anchor">#</a> Time :</h3><p>This competition allow very few time for this exercise, so be dure to do it the most efficiently as possible. Reuse function and avoid making unused components.</p><p>A centralised state can help with that by alowing fewer fetch requests.</p><p>Event bus, although they are a poor solution on production aplication are here a good solution to speed up the workflow.</p><p>Strict naming can help too.</p><h2 id="v-player"><a href="#v-player" aria-hidden="true" class="header-anchor">#</a> v-player</h2><p>Dont' forget the events  <strong>timeupdate</strong> and <strong>loadeddata</strong></p><p>Dont' forget the properties  <strong>currentTime</strong> and  <strong>duration</strong> of the player element</p><div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>audio</span> <span class="token attr-name">controls</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">=&quot;</span><span class="token attr-value"><span class="token property">display</span><span class="token punctuation">:</span>none</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>player<span class="token punctuation">&quot;</span></span> <span class="token attr-name">preload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>auto<span class="token punctuation">&quot;</span></span> <span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>source</span> <span class="token attr-name">:src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>src<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>audio/mpeg<span class="token punctuation">&quot;</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>source<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>audio</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code></code></pre></div></div><div class="page-edit"><!----><div class="last-updated"><span class="prefix">Last Updated: </span><span class="time">11/21/2018, 4:14:07 PM</span></div></div><div class="page-nav"><p class="inner"><span class="prev">
+        ← <a href="/pages/client-side/main.html" class="prev">
+          main
+        </a></span><span class="next"><a href="/pages/server-side/main.html">
+          sujet
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/11.473ae604.js" defer></script><script src="/assets/js/app.b67adcb0.js" defer></script>
+  </body>
+</html>
