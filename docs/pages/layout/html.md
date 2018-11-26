@@ -31,7 +31,7 @@
 
 **emmet**
 ```
-header.header>div.header__burger>nav.nav>ul.nav__links>li.nav__link*5>span
+header.header>div.header__burger>(nav.nav>ul.nav__links>li.nav__link*5>span)+.header__logo+.header__bell
 ```
 
 
@@ -83,7 +83,7 @@ header.header>div.header__burger>nav.nav>ul.nav__links>li.nav__link*5>span
 
 **emmet**
 ```
-section.msg.msgA>.msg__avatar/.msg__content>span*2
+section.msg.msgA>.msg__avatar+.msg__content>span*2
 ```
 
 ```html
@@ -122,14 +122,14 @@ section.msg.msgB>.msg__content>span
 ```html
  <!-- typing message -->
 <div class="msg__content">
-          <span>
-              <div class="typing">
-                <!-- dots -->
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-          </span>
+    <span>
+        <div class="typing">
+          <!-- dots -->
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </span>
 </div>
 ```
 
@@ -138,7 +138,7 @@ section.msg.msgB>.msg__content>span
 
 **emmet**
 ```
-.widget.card-grid>.card*6>img/.card__content>h2+h4^button.button
+.widget.card-grid>.card*6>img+(.card__content>h2+h4)+button.button
 ```
 
 ```html
@@ -155,7 +155,6 @@ section.msg.msgB>.msg__content>span
         $5 - réserver
       </button>
     </div>
-      
       
  </div>
 ```

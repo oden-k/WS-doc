@@ -34,6 +34,13 @@ module.exports = {
           ['/pages/client-side/components','components'],
         ],
       },
+      {
+        title: 'Server-Side',
+        collapsable: true,
+        children: [
+          ['/pages/Server-side/main','sujet'],
+        ],
+      },
       
       
 

@@ -1,8 +1,8 @@
 # Client Side Module
 
-For the seek of perfomance trainining is verry important, so it is a must to folow the steps described below in the right order and to try to do it fast.
+For the seek of performance training is very important, so it is a must to follow the steps described below in the right order and to try to do it fast.
 
-Most of the complicated functions acuelly lives in the main.js file.  
+Most of the complicated functions actuelly lives in the main.js file.  
 
 
 ## Folder structure
