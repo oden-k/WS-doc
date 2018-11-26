@@ -321,11 +321,10 @@ class mainController extends Controller
 ```
 
 
-
 ### Example of a template
 
 
-Don't forget the  security fields :  ``{{ csrf_field() }}``
+Don't forget the  csrf security fields : 
 
 ```php
 @extends('../layout/base')
@@ -355,7 +354,9 @@ Don't forget the  security fields :  ``{{ csrf_field() }}``
         @endif
     </p>
     <form action="/login" method="POST" class="form w-50  ">
+    
         {{ csrf_field() }}
+        
         <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -370,6 +371,7 @@ Don't forget the  security fields :  ``{{ csrf_field() }}``
     </form>
 @endsection
 ```
+
 
 
 

@@ -4,54 +4,49 @@
 ### Convert date to human format
 
 ```js
-
-const toFrenchFormat = () => {
-  const date = new Date(date)
-
-  const options = {
-    year : 'numeric',
-    month : 'short',
-    day: 'numeric'
-  }
-  return date.toLocaleDateString('fr-FR',options)
+const formatDate = dts => {
+	const date = new Date(dts)
+	const params  = {
+		year : 'numeric',
+		month : 'short',
+		day : 'numeric'
+	}
+	return date.toLocaleDateString('fr-FR',params)
 }
 ```
 
 ### Convert seconds to template
 
 ```js
-const secondsToTime = (sc,type) => {
+const secondsToTime = (sc,format) => {
+	let sc_num = parseInt(sc)
 
-  let sec_num = parseInt(sc, 10); 
-  
-  let hours   = Math.floor(sec_num / 3600);
-  let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-  let seconds = sec_num - (hours * 3600) - (minutes * 60);
-  
-  /* optional */
-  if (hours   < 10) {hours   = "0"+hours;}
-  if (minutes < 10) {minutes = "0"+minutes;}
-  if (seconds < 10) {seconds = "0"+seconds;}
-  
-  /* types */
-  switch(type){
-    case 'HH:MM' :
-      return `${hours}H ${minutes}M $`
-      break;
-    case 'MM:SS' :
-      return `${minutes}H ${seconds}M $`
-      break;
-  }
+	let hours = Math.floor(sc_num /3600)
+	let minutes = Math.floor(  (sc_num - hours*3600 ) /60)
+	let seconds = Math.floor( sc_num - ( hours*3600 ) - (minutes*60))
+
+	hours =  hours < 10 ? '0'+hours : hours
+	minutes =  minutes < 10 ? '0'+ minutes : minutes
+	seconds =  seconds < 10 ? '0'+ seconds : seconds
+
+	switch(format){
+		case 'HH:MM':
+			return `${hours}H ${minutes}M`
+			break;
+		case 'MMSS':
+			return `${minutes}:${seconds}`
+			break;
+	}
 }
 ```
 ### Find and delete in an array
 
 ```js 
-const findAndDelete = (array,val) => {
-	for( var i = 0; i < array.length; i++){ 
-		if ( array[i] === val) {
-			array.splice(i, 1); 
-		}
+const findAndDelete = (arr,item) => {
+	for(let i = 0; i< arr.length;i++){
+		arr[i] === item
+			? arr.splice(i,1)
+			: null
 	}
 }
 ```

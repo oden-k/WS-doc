@@ -38,7 +38,7 @@ module.exports = {
         title: 'Server-Side',
         collapsable: true,
         children: [
-          ['/pages/Server-side/main','sujet'],
+          ['/pages/server-side/main','sujet']
         ],
       },
       
